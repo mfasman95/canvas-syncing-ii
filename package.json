@@ -1,16 +1,16 @@
 {
-  "name": "socketio-starter",
+  "name": "canvas-syncing-ii",
   "version": "1.0.1",
   "description": "A starter file set for working with socket io",
   "main": "./src/server.js",
-  "repository": "https://github.com/mfasman95/socketio-starter.git",
+  "repository": "https://github.com/mfasman95/canvas-syncing-ii",
   "author": "Matthew Fasman <mfasman95@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "node ./src/server.js",
     "nodemon": "nodemon ./src/server.js",
     "pretest": "eslint ./src --fix",
-    "test": "echo /Test Complete/"
+    "test": "echo \"Tests complete\""
   },
   "dependencies": {
     "chalk": "^2.1.0",
