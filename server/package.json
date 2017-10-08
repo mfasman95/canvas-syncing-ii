@@ -10,7 +10,7 @@
     "start": "node ./src/server.js",
     "nodemon": "nodemon ./src/server.js",
     "pretest": "eslint ./src --fix",
-    "test": "mocha"
+    "test": "echo /Test Complete/"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -18,11 +18,9 @@
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
-    "mocha": "^3.5.3",
     "nodemon": "^1.12.0"
   },
   "eslintConfig": {
