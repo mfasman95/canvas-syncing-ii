@@ -1,4 +1,3 @@
-const { log } = require('./../utility/logger');
 const express = require('express');
 const path = require('path');
 
