@@ -7,6 +7,8 @@ import { Button } from 'react-bootstrap';
 const random0to255 = () => Math.floor(Math.random() * 255);
 const randomColor = () => `rgb(${random0to255()},${random0to255()},${random0to255()})`;
 
+const myColor = randomColor();
+
 class Drawing extends Component {
   constructor(props){
     super(props);
@@ -21,7 +23,8 @@ class Drawing extends Component {
     const { ctx, canvas } = this.state;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for(let i = 0; i < this.props.drawing.length; i++){
-      const { startPos, endPos } = this.props.drawing[i];
+      const { startPos, endPos, color } = this.props.drawing[i];
+      ctx.strokeStyle = color;
       ctx.beginPath();
       ctx.moveTo(startPos.x, startPos.y);
       ctx.lineTo(endPos.x, endPos.y);
@@ -38,7 +41,7 @@ class Drawing extends Component {
     const ctx = canvas.getContext("2d");
     ctx.lineJoin = 'round';
     ctx.lineWidth = 5;
-    ctx.strokeStyle = randomColor();
+    ctx.strokeStyle = myColor;
 
     this.setState({ canvas, ctx });
 
@@ -69,7 +72,7 @@ class Drawing extends Component {
         y: pointerPos.y - this.image.y()
       };
       this.lastPointerPosition = pointerPos;
-      const newLine = {startPos, endPos};
+      const newLine = {startPos, endPos, color: myColor};
 
       emit('lineDraw', { newLine });
     }
