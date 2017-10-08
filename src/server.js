@@ -14,27 +14,19 @@ let drawingArray = [];
 
 const makeEmitObj = eventName => data => Object.assign({}, { eventName, data: data || 'No Data Provided' });
 const emitter = (eventName, data, socket) => {
-  socket.emit(EMIT_KEYS.server,
-    makeEmitObj(eventName)(data),
-  );
+  socket.emit(EMIT_KEYS.server, makeEmitObj(eventName)(data));
   socketOut(`Event ${eventName} sent to ${socket.id}`);
 };
 const emitToAll = (eventName, data) => {
-  io.sockets.emit(EMIT_KEYS.server,
-    makeEmitObj(eventName)(data),
-  );
+  io.sockets.emit(EMIT_KEYS.server, makeEmitObj(eventName)(data));
   socketOut(`Event ${eventName} sent to all sockets`);
 };
 const emitToRoom = (eventName, data, room) => {
-  io.to(room).emit(EMIT_KEYS.server,
-    makeEmitObj(eventName)(data),
-  );
+  io.to(room).emit(EMIT_KEYS.server, makeEmitObj(eventName)(data));
   socketOut(`Event ${eventName} sent to ${room}`);
 };
 const broadcastToRoom = (eventName, data, room) => {
-  io.to(room).broadcast(EMIT_KEYS.server,
-    makeEmitObj(eventName)(data),
-  );
+  io.to(room).broadcast(EMIT_KEYS.server, makeEmitObj(eventName)(data));
   socketOut(`Event ${eventName} sent to ${room}`);
 };
 const handleConnect = (sock) => {
