@@ -87,9 +87,6 @@ const readline = require('readline');
 
 if (process.platform === 'win32' || process.platform === 'win64') {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  rl.question(
-    '(WINDOWS ONLY) Press enter to kill this process...\n',
-    () => process.emit('SIGINT'),
-  );
+  rl.question('(WINDOWS ONLY) Press enter to kill this process...\n', () => process.emit('SIGINT'));
   process.on('SIGINT', process.exit);
 }
