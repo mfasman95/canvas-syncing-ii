@@ -56,6 +56,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-# Ignore build folders
-**/build
